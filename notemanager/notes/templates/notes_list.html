@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Список заметок{% endblock %}
+{% block content %}
+    <h2>Ваши заметки</h2>
+    <ul>
+        {% for note in notes %}
+            <li>{{ note.title }} - {{ note.description }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
