@@ -10,6 +10,9 @@
 <body>
   <header>
     <h1>{% block header %}Добро пожаловать в приложение заметок{% endblock %}</h1>
+    <nav>
+      <a href="{% url 'notes_list' %}">Список заметок</a>
+    </nav>
   </header>
 
   <main>
