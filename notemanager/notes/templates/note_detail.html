@@ -5,4 +5,5 @@
     <h2>{{ note.title }}</h2>
     <p>{{ note.description }}</p>
     <p>Создано: {{ note.created_at }}</p>
+<a href="{% url 'notes_list' %}">Назад к списку заметок</a>
 {% endblock %}
