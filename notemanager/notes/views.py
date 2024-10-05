@@ -1,3 +1,4 @@
+from django.shortcuts import render, get_object_or_404
 from rest_framework import generics, permissions
 from .models import Note, CustomUser
 from .serializers import NoteSerializer, UserSerializer
@@ -33,3 +34,13 @@ class NoteDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Note.objects.filter(user=self.request.user)
+
+
+# Template Views
+def notes_list(request):
+    notes = Note.objects.filter(user=request.user)  # Ensure user is authenticated
+    return render(request, 'notes_list.html', {'notes': notes})
+
+def note_detail(request, note_id):
+    note = get_object_or_404(Note, id=note_id, user=request.user)  # Ensure user is authenticated
+    return render(request, 'note_detail.html', {'note': note})
