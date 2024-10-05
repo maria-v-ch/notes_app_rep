@@ -5,7 +5,9 @@
     <h2>Ваши заметки</h2>
     <ul>
         {% for note in notes %}
-            <li>{{ note.title }} - {{ note.description }}</li>
+            <li>
+                <a href="{% url 'note_detail' note.id %}">{{ note.title }}</a> - {{ note.description }}
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
